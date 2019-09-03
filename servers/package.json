@@ -1,0 +1,14 @@
+{
+  "name": "save-her-from-cancer",
+  "version": "1.0.0",
+  "description": "The login and db server for the web technology project, Save Her From Cancer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kumar Harsh, Amarjeet Chaudhary",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^3.3.2"
+  }
+}
