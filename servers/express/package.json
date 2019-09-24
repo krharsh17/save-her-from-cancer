@@ -1,0 +1,14 @@
+{
+  "name": "save-her-from-cancer",
+  "version": "1.0.0",
+  "description": "A platform intended for women who have looked cancer in the eye at some point of their lives",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kumar Harsh",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
