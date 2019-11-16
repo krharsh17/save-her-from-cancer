@@ -1,0 +1,66 @@
+body{
+			padding: 0px;
+			margin: 0px;
+			overflow: auto;
+		}
+		
+		::-webkit-scrollbar {
+			width: 0px;
+		}
+
+		.home {
+			float: left;
+			width: 23%;
+			height: 50px;
+			font-size: 3vw;
+			padding-top: 16px;
+			padding-left: 16px;
+			border-radius: 16px;
+			font-family: 'Ubuntu', sans-serif;
+			margin-bottom: 75px;
+		}
+
+		.topnav {
+			background-color: #fff;
+			overflow: clip;
+			height: 50px;
+			float: right;
+			width: 65%;
+			margin-top: 16px;
+			padding-right: 16px;
+			margin-bottom: 75px;
+		}
+
+		.topnav a {
+			position: relative;
+			float: right;
+			color: #000;
+			text-align: center;
+			padding: 14px 16px;
+			font-family: 'Ubuntu', sans-serif;
+			text-decoration: none;
+			font-size: 16px;
+			border-radius: 14px;
+		}
+
+		.topnav a:hover {
+			color: rgba(30,169,156,1);
+			font-size: 20px;
+			transition-duration: 0.4s;
+		}
+
+		.topnav a.active {
+			color: rgba(30,169,156,1);
+		}
+
+		.main_image {
+			display: block;
+			width: 100%;
+
+		}
+
+		.main_image_container {
+			width: 100%;
+			margin: 0px;
+
+		}
