@@ -1,12 +1,39 @@
 <html>
 
 <head>
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-	<link href="main_stylesheet.css" type="text/css" rel="stylesheet">
-
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="main_stylesheet.css">
+	<script src="common_script.js" ></script>
 	<style>
-		
+		.article_title {
+			font-family: 'Ubuntu', sans-serif;
+			font-size: 50px;
+			color: #AE9CDA;
+			margin-left: 100px;
+			margin-right: 100px;
+			margin-top: 100px;
+		}
 
+		.article_author {
+			font-family: 'Ubuntu', sans-serif;
+			font-size: 18px;
+			color: #000;
+			margin-left: 100px;
+			margin-right: 100px;
+		}
+
+		.article_text {
+			font-family: 'Open Sans', sans-serif;
+			font-size: 24px;
+			color: #000;
+			margin-left: 100px;
+			margin-right: 100px;
+		}
 	</style>
 
 	<script>
@@ -26,7 +53,7 @@
 				if (signedIn.startsWith("true")) {
 					//TODO Code to logout
 				} else {
-					window.open("login");
+					window.open("login", "_self");
 				}
 
 			});
@@ -67,17 +94,17 @@
 			}
 		}
 	</script>
-	<link rel="stylesheet" type="text/css" href="csspage.css">
 </head>
 
 <body>
-	<!-- <div>s -->
+	
+	<div id="topbar">
 		<div class="home">
 			<span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
 				style="color:rgba(30,169,156,1);">cancer</span>
 		</div>
 
-		<div class="topnav">
+		<div id="topnav">
 			<a href="login" id="signin">Sign in</a>
 			<a href="Nearest Centers">Nearest Centers</a>
 			<a href="self diagnosis">Self-Diagnosis</a>
@@ -85,13 +112,12 @@
 			<a href="Articles">Articles</a>
 			<a href="types of cancer">Types of Cancer</a>
 		</div>
-		<div class="main_image_container">
-			<img src="https://i.ibb.co/PtSDnc7/Group-43.png" class="main_image">
-		</div>
-		<h1 class="article_title">$</h1>
-		<p class="article_author">$</p>
-		<p class="article_text">$</p>
-
-	<!-- </div> -->
+	</div>
+	<div class="main_image_container">
+		<img src="https://i.ibb.co/PtSDnc7/Group-43.png" class="main_image">
+	</div>
+	<h1 class="article_title">$</h1>
+	<p class="article_author">$</p>
+	<p class="article_text">$</p>
 
 </html>

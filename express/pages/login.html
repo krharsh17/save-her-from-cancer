@@ -1,384 +1,291 @@
 <html>
 
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="main_stylesheet.css">
+	<script src="common_script.js"></script>
 	<style>
-		.Rectangle_1 {
-		  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
-		  overflow: visible;
-		  width: 188px;
-		  height: 85px;
-		  left: 0px;
-		  top: 0px;
-		  float: right;
-		  margin-top: -60px;
-		}
-	
-		p {
-		  font-size: 30px;
-		}
-	
-		#saveherfromcancer {
-			white-space: nowrap;
-			text-align: left;
-			font-family: Roboto;
-			font-style: normal;
-			font-weight: normal;
-			font-size: 28px;
-			color: rgba(0,0,0,1);
-		}
-	
-		#first {
-		  height: 35px;
-		  margin-right: 200px;
-		  margin-left: 300px;
-		  float: left;
-		  margin-top: -40px;
-		}
-	
-		#first ul {
-		  padding: 0;
-		  list-style-type: none;
-		  text-align: center;
-		}
-	
-		#first ul li {
-		  display: inline;
-		  padding: 25px;
-		  font-family: Roboto;
-		  overflow: visible;
-		  font-style: normal;
-		  font-weight: normal;
-		  font-size: 18px;
-		  color: rgba(0, 0, 0, 1);
-		  vertical-align: middle;
-		}
-	
-		#first ul li a {
-		  text-decoration: none;
-		  color: black;
-		  vertical-align: middle;
-		}
-	
-		a:active {
-		  color: red;
-		}
-	
-		#div2 {
-		  background-color: lightgrey;
-		  padding-left: 20px;
-		  height: 35px;
-		  border-radius: 5px;
-		  float: right;
-		  margin-top: -30px;
-		}
-	
-		#div2 a {
-		  text-decoration: none;
-		  color: white;
-		}
-	
-		#div2 h2 {
-		  font-size: 25px;
-		  margin-top: 2px;
-		  padding-left: 2px;
-		  padding-right: 5px;
-		}
-	
-		#img1 {
-		  margin-right: 30px;
-		  margin-top: 20px;
-		  margin-left: 20px;
-		  height: 350px;
-		  width: 1400px;
-		}
-	
-		.para {
-		  font-size: 10px;
-		}
-	
-		h2 {
-		  margin-left: 30px;
-		}
-	
-		#lower1 {
-		  background-color: white;
-		  margin-left: 2px;
-		  margin-right: 1200px;
-		}
-	
-		#lower2 {
-		  background-color: white;
-		  margin-left: 2px;
-		  margin-right: 900px;
-		  margin-left: 320px;
-		  margin-top: -200px;
-		}
-	
-		#lower3 {
-		  background-color: white;
-		  margin-left: 600px;
-		  margin-top: -160px;
-		  margin-right: 300px;
-		}
-	
-		#lower4 {
-		  background-color: white;
-		  margin-left: 900px;
-		  margin-right: 10px;
-		  margin-top: -200px;
-		}
-	
-		#last {}
-	
-		#lastdiv {
-		  display: inline;
-		}
-	
-		.container {
-		  width: 1400px;
-		  height: 190px;
-		  background-color: grey;
-		  padding-top: 20px;
-		  padding-left: 25px;
-		  padding-right: 25px;
-	
-		}
-	
-		#st-box {
-		  float: left;
-		  width: 320px;
-		  height: 160px;
-		  font-size: 20px;
-		  padding-left: 2px;
-		  background-color: grey;
-	
-		}
-	
-		#nd-box {
-		  float: left;
-		  width: 320px;
-		  height: 160px;
-		  font-size: 20px;
-		  padding-left: 2px;
-		  background-color: grey;
-		  margin-left: 30px;
-		}
-	
-		#rd-box {
-		  float: left;
-		  width: 320px;
-		  height: 160px;
-		  font-size: 20px;
-		  padding-left: 2px;
-		  background-color: grey;
-		  margin-left: 30px;
-		}
-	
-		#th-box {
-		  float: left;
-		  width: 320px;
-		  height: 160px;
-		  font-size: 20px;
-		  padding-left: 2px;
-		  background-color: grey;
-		  margin-left: 30px;
-		}
-	
-		#p1 {
-		  font-size: 20px;
-		}
-	
-		.mini {
-		  height: 300px;
-		  width: 300px;
-		  float: left;
-		  margin-top: 20px;
-		  margin-left: 80px;
-		  margin-right: 80px;
-		  margin-bottom: 20px;
-		  border: 2px solid black;
-		  position: relative;
-		  box-shadow: 5px 5px #888888;
-		}
-	
-		#finimg {
-		  height: 100%;
-		  width: 100%;
-		}
-	
-		.text-block {
-		  position: absolute;
-		  opacity: 0.2;
-		  bottom: 5px;
-		  margin-left: 5px;
-		  margin-right: 0px;
-		  background-color: black;
-		  color: white;
-		  transition: transform .2s;
-		  /* Animation */
-		}
-	
-		.text-block:hover {
-		  opacity: 0.9;
-		  -ms-transform: scale(1.3);
-		  /* IE 9 */
-		  -webkit-transform: scale(1.3);
-		  /* Safari 3-8 */
-		  transform: scale(1.3);
-		}
-	
-		.div {
-		  position: absolute;
-		  margin-right: 10px;
-		  margin-top: -35px;
-		  margin-left: 1100px;
-		  height: 50px;
-		  width: 170px;
-		  background-color: grey;
-		  border-radius: 5px;
-		}
-	
-		#img2 {
-		  width: 1400px;
-		  height: 350px;
-		}
-	
-		.artdiv {
-		  height: 300px;
-		  width: 300px;
-		  float: left;
-		  margin-top: 250px;
-		  margin-left: 80px;
-		  margin-right: 80px;
-		  margin-bottom: 20px;
-		  border: 4px solid black;
-		  position: relative;
-		}
-	
-		.womenpara {
-		  font-size: 20px;
-		}
-	
-	
-		.column {
-		  float: left;
-		  width: 300px;
-		  height: 300px;
-		  padding: 80px;
-		}
-	
-		/* Clearfix (clear floats) */
-		.row::after {
-		  content: "";
-		  margin-top: 20px;
-		  clear: both;
-		  position: absolute;
-		  display: table;
-		}
-	
-		.text-blockart {
-		  position: absolute;
-		  opacity: 1;
-		  bottom: 5px;
-		  margin-left: 5px;
-		  margin-right: 0px;
-		  background-color: white;
-		  color: black;
-		}
-	
-		.h2 {
-		  margin-left: 5px;
-		  font-style: sans-serif;
-		}
-	  </style>
+		#login_divider {
+			width: 2px;
+			height: 250px;
+			background-color: #111;
+			float: left;
+			margin-top: 10%;
 
-	<link rel="stylesheet" type="text/css" href="csspage.css">
+		}
+
+		#sign_in {
+			width: 35%;
+			float: left;
+
+		}
+
+		#sign_up {
+			width: 60%;
+			float: left;
+
+		}
+
+		#sign_up p {
+			font-family: 'Josefin Sans', sans-serif;
+			color: #1EA99C;
+			border-radius: 16px;
+			padding-left: 32px;
+			padding-right: 32px;
+			padding-top: 12px;
+			padding-bottom: 12px;
+			margin-left: 16%;
+			margin-top: -12%;
+			font-size: 20px;
+			width: 600px;
+			text-align: center;
+			float: left;
+			box-shadow: 0px 5px 5px 1px #cacaca;
+		}
+
+		#sign_up p:hover {
+			background-color: #1EA99C;
+			color: #fff;
+			transition-duration: 0.4s;
+		}
+
+		#sign_in p {
+			font-family: 'Josefin Sans', sans-serif;
+			color: #fff;
+			border-radius: 16px;
+			padding-left: 32px;
+			padding-right: 32px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			margin-left: 32%;
+			margin-top: 12%;
+			font-size: 16px;
+			float: left;
+			background-color: #1EA99C;
+		}
+
+		#sign_in p:hover {
+			background-color: #fff;
+			color: #1EA99C;
+			box-shadow: 0px 5px 5px 1px #cacaca;
+			transition-duration: 0.4s;
+		}
+
+		#sign_in form {
+			margin-top: 40%;
+			margin-left: 16%;
+		}
+
+		#sign_in input {
+			margin-top: 16px;
+			margin-bottom: 16px;
+			border: none;
+			width: 300px;
+			font-family: 'Josefin Sans', sans-serif;
+			border-radius: 0px;
+			border-bottom: 1px solid black;
+			background-color: #fff;
+		}
+
+		#sign_up h1 {
+			font-family: 'Fjalla One', sans-serif;
+			font-size: 50px;
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		#sign_up h2 {
+			margin-top: -20px;
+			font-family: 'Josefin Sans', sans-serif;
+			font-size: 20px;
+			margin-bottom: -20px;
+			text-align: center;
+		}
+
+		#sign_up form {
+			margin-top: 5%;
+			margin-left: 16%;
+			margin-bottom: 15%;
+		}
+
+		#sign_up input[type=text],
+		input[type=password] {
+			border: none;
+			width: 600px;
+			border-radius: 0px;
+			border-bottom: 1px solid black;
+			background-color: #fff;
+		}
+
+		label {
+			color: #00000080;
+			font-family: 'Ubuntu', sans-serif;
+		}
+
+	</style>
+
 </head>
 
 <body>
 	<script type="text/javascript">
 		var regx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})(.[a-z]{2,8})?$/;
 
-		function firstcheck() {
-			fmail = document.getElementById("email").value;
-			first = document.getElementById("fname").value;
-			second = document.getElementById("sname").value;
-			firstpass = document.getElementById("pass1").value;
-			secondpass = document.getElementById("pass2").value;
-			if (first.length == 0) {
-				first.focus();
-				document.getElementById("lfname").style.visibility = "visible";
-				return false;
-			}
-			if (!regx.test(fmail)) {
-				document.getElementById("lemail").style.visibility = "visible";
-				return false;
-			}
-			if (firstpass != secondpass) {
-				secondpass.focus();
-				documnet.getElementById("lpassword").style.visibility = "visible";
-				return false;
+		function checkForSignup() {
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var firstPassword = document.getElementById("password").value;
+			var secondPassword = document.getElementById("re_password").value;
+			if (name.size == 0 || email.length == 0 || firstPassword.length == 0 || secondPassword.length == 0) {
+				alert("Please enter all details correctly!");
+			} else if (!regx.test(email)) {
+				alert("Please enter correct email!");
+			} else if (firstPassword != secondPassword) {
+				alert("The two passwords do not match!");
 			} else {
-				return true;
+				signup();
 			}
 		}
 
-		function funcheck2() {
-			smail = document.getElementById("email2").value;
-			thirdpass = document.getElementById("pass3").value;
-			if (!regx.test("smail")) {
-				return false;
+		function signup() {
+			var name = document.getElementById("name").value;
+			var email = document.getElementById("email").value;
+			var firstPassword = document.getElementById("password").value;
+
+			var alteredName = name;
+			if (name.split(" ").length > 1)
+				alteredName = name.split(" ")[0] + "_" + name.split(" ")[1];
+
+			$.post("http://localhost:8081", "SU " + email + " " + firstPassword + " " + alteredName + " " + "type Patna",
+				function (result) {
+					console.log(result);
+					if (result == "SUCCESSFUL") {
+						alert("Account created successfully! Now you can contribute articles and stories!");
+						window.location.href = "articles";
+						setCookie("signedIn", "true");
+					} else if (result == "DUPLICATE") {
+						alert("Account already exists! Please log in with these details.");
+					} else if (result == "FAILED") {
+						alert("Something went wrong. Please try again.");
+					}
+				}, 'text');
+
+		}
+
+		function checkForSignin() {
+			var password = document.getElementById("login_password").value;
+			var email = document.getElementById("login_email").value;
+			if (password.size == 0 || email.length == 0) {
+				alert("Please enter all details correctly!");
+			} else if (!regx.test(email)) {
+				alert("Please enter correct email!");
+			} else {
+				signin();
 			}
 		}
+
+		function signin() {
+			var email = document.getElementById("login_email").value;
+			var firstPassword = document.getElementById("login_password").value;
+
+			$.post("http://localhost:8081", "SI " + firstPassword + " " + email + " false",
+				function (result) {
+					if (result == "INVALID CREDENTIALS") {
+						alert("Please enter correct username & password!");
+					} else if (result == "FAILED") {
+						alert("Something went wrong. Please try again.");
+					} else {
+						alert("Logged in!");
+						window.location.href = "articles";
+						setCookie("signedIn", "true");
+						setCookie("token", result.split("token: ")[1]);
+					}
+				}, 'text').done(() => {
+				alert("request done!")
+			});
+
+			function setCookie(cname, cvalue, exdays) {
+				var d = new Date();
+				d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				var expires = "expires=" + d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+
+		}
 	</script>
-	<div id="saveherfromcancer">
-        <span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span style="color:rgba(30,169,156,1);">cancer</span>
-      </div>
-	<div id="first">
-		<ul>
-			<li><a href="types-of-cancer">Types of Cancer</a></li>
-			<li><a href="articles">Articles</a></li>
-			<li><a href="survivor stories">Survivor Stories</a></li>
-			<li><a href="self diagnosis">Self-Diagnosis</a></li>
-			<li><a href="Nearest Centers">Nearest Centers</a></li>
-		</ul>
+	
+
+	<div id="topbar">
+		<div class="home" id="home">
+			<span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
+				style="color:rgba(30,169,156,1);">cancer</span>
+		</div>
+
+		<div id="topnav">
+			<p id="signin">Sign in</p>
+			<a href="Nearest Centers">Nearest Centers</a>
+			<a href="self diagnosis">Self-Diagnosis</a>
+			<a href="survivor stories">Survivor Stories</a>
+			<a href="Articles">Articles</a>
+			<a href="types of cancer">Types of Cancer</a>
+		</div>
 	</div>
-	<img src="https://i.ibb.co/NTR1sT0/Group-40.png" id="img1">
-	<h1 style="padding-left: 120px">Create an account<h1>
-			<p style="font-size: 20px;padding-left: 120px">Just a few basic details</p>
-			<form action="" style="padding-left: 120px;float:left; ">
-				<fieldset
-					style="border-left: 2px solid black;width: 600px;border-left: hidden;border-bottom: hidden;border-top: hidden;">
-					<input type="text" name="first name" minLength="6" maxlength="10" required placeholder="first name"
-						id="fname"
-						style="border-left: hidden;border-right: hidden;border-top: hidden; border-bottom: 1px solid black;">
-					<input type="text" name="second name" placeholder="second name" id="sname"
-						style="border-left: hidden;border-right: hidden;border-top: hidden;border-bottom: 1px solid black"><br>
-					<!--<label id="lfname" style="color: red;visibility:hidden;">Fill the name</label>--><br>
-					<input type="email" name="email" placeholder="email" required id="femail"
-						style=" width:325px;border-left: hidden;border-right: hidden;border-top: hidden;border-bottom: 1px solid black"><br>
-					<!--<label id="lemail" style="color: red;visibility: hidden">Invalid email-id</label>--><br>
-					<input type="password" name="password" minLength="6" maxlength="10" required
-						placeholder="choose a password" id="pass1"
-						style=" width:325px;border-left: hidden;border-right: hidden;border-top: hidden;border-bottom: 1px solid black"><br><br>
-					<input type="password" name="password" placeholder="Re-enter password" id="pass2"
-						style=" width:325px;border-left: hidden;border-right: hidden;border-top: hidden;border-bottom: 1px solid black"><br>
-					<!--<label id="lpassword" style="color: red;visibility: hidden">Invalid password</label>--><br><br>
-					<input type="submit" onclick="funcheck()" id="sub1" minLength="6" maxlength="10" required
-						value="Create Account"
-						style="background-color:#169FD8;padding:10px 10px 10px 10px;cursor: pointer;border-radius: 10px;margin-left: 200px">
-				</fieldset>
+	<div class="main_image_container">
+		<img src="login_banner.png" class="main_image">
+	</div>
+
+
+	<div id="login_content">
+		<div id="sign_in">
+			<form>
+				<div class="form-group" id="signup_field">
+					<input type="text" class="form-control" id="login_email" placeholder="Email">
+				</div>
+				<div class="form-group" id="signup_field">
+					<input type="text" class="form-control" id="login_password" placeholder="Password">
+				</div>
 			</form>
-			<form action="" style="float: left; margin-left: 300px">
-				<input type="email" name="email" placeholder="Email Address" required
-					style="width:250px;border-left: hidden;border-right: hidden;border-top: hidden;border-bottom: 1px solid black">
-				<br><br>
-				<input type="password" name="password" minLength="6" maxlength="10" required placeholder="Password"
-					style="width:250px;border-left: hidden;border-right: hidden;border-top: hidden;border-bottom: 1px solid black"><br><br>
-				<input type="submit" onclick="funcheck2" value="Sign in"
-					style="background-color:#66ffff;padding:4px 20px 4px 20px;cursor: pointer;border-radius: 20px"><br>
-				<!-- <p style="margin-left: 30px">or</p>
-				<a href="sdfasd.html"><img src="google logof.png"></a> -->
+			<p onclick="checkForSignin()">Sign in</p>
+		</div>
+
+		<div id="login_divider">
+
+		</div>
+
+		<div id="sign_up">
+
+			<h1>Create an account</h1><br>
+			<h2>Just a few basic details</h2>
+			<form>
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name">
+				</div>
+
+				<div class="form-group" id="signup_field">
+					<label for="email">Email</label>
+					<input type="text" class="form-control" id="email">
+				</div>
+				<div class="form-group" id="signup_field">
+					<label for="pswd">Password</label>
+					<input type="text" class="form-control" id="password">
+				</div>
+				<div class="form-group" id="signup_field">
+					<label for="pswd">Re-enter password</label>
+					<input type="password" class="form-control" id="re_password">
+				</div>
 			</form>
+			<p onclick="checkForSignup()">Create account</p>
+		</div>
+	</div>
+
+
+
 
 </html>

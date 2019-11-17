@@ -1,0 +1,14 @@
+<centres>
+    <centre>
+        <name>Centre 1</name>
+        <address>New Delhi</address>
+        <latitude>28.6139</latitude>
+        <longitude>77.2090</longitude>
+    </centre>
+    <centre>
+        <name>Centre 2</name>
+        <address>Patna</address>
+        <latitude>25.6181949</latitude>
+        <longitude>85.1892103</longitude>
+    </centre>
+</centres>

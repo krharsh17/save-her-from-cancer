@@ -1,438 +1,190 @@
 <html>
+
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="main_stylesheet.css">
+  <script src="common_script.js"></script>
   <style>
-    .Rectangle_1 {
-      filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.161));
-      overflow: visible;
-      width: 188px;
-      height: 85px;
-      left: 0px;
-      top: 0px;
-      float: right;
-      margin-top: -60px;
-    }
-
-    p {
-      font-size: 30px;
-    }
-
-    #saveherfromcancer {
-		white-space: nowrap;
-		text-align: left;
-		font-family: Roboto;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 28px;
-		color: rgba(0,0,0,1);
-	}
-
-    #first {
-      height: 35px;
-      margin-right: 200px;
-      margin-left: 300px;
-      float: left;
-      margin-top: -40px;
-    }
-
-    #first ul {
-      padding: 0;
-      list-style-type: none;
+    #fact_header {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 50px;
+      color: #1EA99C;
+      width: 100%;
+      margin-top: 50px;
       text-align: center;
     }
 
-    #first ul li {
-      display: inline;
-      padding: 25px;
-      font-family: Roboto;
-      overflow: visible;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 18px;
-      color: rgba(0, 0, 0, 1);
-      vertical-align: middle;
-    }
-
-    #first ul li a {
-      text-decoration: none;
-      color: black;
-      vertical-align: middle;
-    }
-
-    a:active {
-      color: red;
-    }
-
-    #div2 {
-      background-color: lightgrey;
-      padding-left: 20px;
-      height: 35px;
-      border-radius: 5px;
-      float: right;
-      margin-top: -30px;
-    }
-
-    #div2 a {
-      text-decoration: none;
-      color: white;
-    }
-
-    #div2 h2 {
-      font-size: 25px;
-      margin-top: 2px;
-      padding-left: 2px;
-      padding-right: 5px;
-    }
-
-    #img1 {
-      margin-right: 30px;
-      margin-top: 20px;
-      margin-left: 20px;
-      height: 350px;
-      width: 1400px;
-    }
-
-    .para {
-      font-size: 10px;
-    }
-
-    h2 {
-      margin-left: 30px;
-    }
-
-    #lower1 {
-      background-color: white;
-      margin-left: 2px;
-      margin-right: 1200px;
-    }
-
-    #lower2 {
-      background-color: white;
-      margin-left: 2px;
-      margin-right: 900px;
-      margin-left: 320px;
-      margin-top: -200px;
-    }
-
-    #lower3 {
-      background-color: white;
-      margin-left: 600px;
-      margin-top: -160px;
-      margin-right: 300px;
-    }
-
-    #lower4 {
-      background-color: white;
-      margin-left: 900px;
-      margin-right: 10px;
-      margin-top: -200px;
-    }
-
-    #last {}
-
-    #lastdiv {
-      display: inline;
-    }
-
-    .container {
-      width: 1400px;
-      height: 190px;
-      background-color: grey;
-      padding-top: 20px;
-      padding-left: 25px;
-      padding-right: 25px;
-
-    }
-
-    #st-box {
-      float: left;
-      width: 320px;
-      height: 160px;
-      font-size: 20px;
-      padding-left: 2px;
-      background-color: grey;
-
-    }
-
-    #nd-box {
-      float: left;
-      width: 320px;
-      height: 160px;
-      font-size: 20px;
-      padding-left: 2px;
-      background-color: grey;
-      margin-left: 30px;
-    }
-
-    #rd-box {
-      float: left;
-      width: 320px;
-      height: 160px;
-      font-size: 20px;
-      padding-left: 2px;
-      background-color: grey;
-      margin-left: 30px;
-    }
-
-    #th-box {
-      float: left;
-      width: 320px;
-      height: 160px;
-      font-size: 20px;
-      padding-left: 2px;
-      background-color: grey;
-      margin-left: 30px;
-    }
-
-    #p1 {
-      font-size: 20px;
-    }
-
-    .mini {
-      height: 300px;
-      width: 300px;
-      float: left;
-      margin-top: 20px;
-      margin-left: 80px;
-      margin-right: 80px;
-      margin-bottom: 20px;
-      border: 2px solid black;
-      position: relative;
-      box-shadow: 5px 5px #888888;
-    }
-
-    #finimg {
-      height: 100%;
+    #facts_container {
       width: 100%;
+      height: 250px;
+      padding-top: 40px;
+      padding-bottom: 10px;
+      background: #F5F5F5;
     }
 
-    .text-block {
-      position: absolute;
-      opacity: 0.2;
-      bottom: 5px;
-      margin-left: 5px;
-      margin-right: 0px;
-      background-color: black;
-      color: white;
-      transition: transform .2s;
-      /* Animation */
+    #fact_text {
+      font-family: 'DM Sans', sans-serif;
+      text-align: center;
+      font-size: 14px;
+      padding-left: 15%;
+      padding-right: 15%;
+      margin-bottom: 50px;
     }
 
-    .text-block:hover {
-      opacity: 0.9;
-      -ms-transform: scale(1.3);
-      /* IE 9 */
-      -webkit-transform: scale(1.3);
-      /* Safari 3-8 */
-      transform: scale(1.3);
+    #facts_header {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      background: #F5F5F5;
+      padding-top: 72px;
+      margin-bottom: -32px;
+      margin-top: -10px;
+      text-align: center;
+      color: #B4B8BC;
     }
 
-    .div {
-      position: absolute;
-      margin-right: 10px;
-      margin-top: -35px;
-      margin-left: 1100px;
-      height: 50px;
-      width: 170px;
-      background-color: grey;
-      border-radius: 5px;
-    }
-
-    #img2 {
-      width: 1400px;
-      height: 350px;
-    }
-
-    .artdiv {
-      height: 300px;
-      width: 300px;
+    #fact_group {
+      width: 25%;
       float: left;
-      margin-top: 250px;
-      margin-left: 80px;
-      margin-right: 80px;
-      margin-bottom: 20px;
-      border: 4px solid black;
-      position: relative;
+      height: auto;
     }
 
-    .womenpara {
-      font-size: 20px;
+    .carousel-inner img {
+      width: 800px;
+      height: 400px;
+      margin: auto;
     }
 
+    #activities{
+      margin-top:100px;
+      width: 80%;
+      margin-left:auto;
+      margin-right: auto;
+      margin-bottom: 50px;
 
-    .column {
-      float: left;
-      width: 300px;
-      height: 300px;
-      padding: 80px;
     }
 
-    /* Clearfix (clear floats) */
-    .row::after {
-      content: "";
-      margin-top: 20px;
-      clear: both;
-      position: absolute;
-      display: table;
+    h2{
+      font-family: 'Ubuntu', sans-serif;
+      color: #000;
+      font-size: 32px;
+      margin-left: 32px;
+      margin-top: 50px;
+      margin-bottom: -40px;
     }
 
-    .text-blockart {
-      position: absolute;
-      opacity: 1;
-      bottom: 5px;
-      margin-left: 5px;
-      margin-right: 0px;
-      background-color: white;
-      color: black;
-    }
-
-    .h2 {
-      margin-left: 5px;
-      font-style: sans-serif;
-    }
   </style>
 
-<script>
-    window.onload = function () {
-      var signedIn = "false";
-
-      if (signedIn.startsWith("true")) {
-        // button.style.display = "none";
-        document.getElementById("div2").innerHTML = "Signed In";
-      }
-
-      document.getElementById("div2").addEventListener("click", (ev) => {
-
-        var signedIn = getCookie("signedIn");
-        signedIn = "false";
-
-        if (signedIn.startsWith("true")) {
-          //TODO Code to logout
-        } else {
-          window.open("login", "_self");
-        }
-
-      });
-
-    }
-
-    function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      var expires = "expires=" + d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-
-    function getCookie(cname) {
-      var name = cname + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    }
-
-    function checkCookie() {
-      var user = getCookie("username");
-      if (user != "") {
-        alert("Welcome again " + user);
-      } else {
-        user = prompt("Please enter your name:", "");
-        if (user != "" && user != null) {
-          setCookie("username", user, 365);
-        }
-      }
-    }
-  </script>
-	</head>
-	<body>
-		<div id="saveherfromcancer">
-      <span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span style="color:rgba(30,169,156,1);">cancer</span>
-    </div>
-	<div id="first">
-		<ul >
-			<li><a href="types-of-cancer">Types of Cancer</a></li>
-			<li><a href="articles">Articles</a></li>
-			<li><a href="survivor stories">Survivor Stories</a></li>
-			<li><a href="self diagnosis">Self-Diagnosis</a></li>
-			<li><a href="Nearest Centers">Nearest Centers</a></li>
-		</ul>
-	</div>
-	<div id="div2"><h2>Sign in</h2></div>
-	<img src="https://i.ibb.co/D4Vc5Qw/grp.png" id="img1">
-	<h3 style="text-align: center;">FEMININE CANCER FACTS</h3>
-	 <div class="container"> 
-            <div id="st-box"> 
-               <p id="p1">
-               	<center><b>1</b></center>
-               	in every 8 females in US is diagonised with breast cancer every year
-               </p>
-            </div> 
-              
-            <div id="nd-box"> 
-                <p id="p1"> 
-                   <center><b>4250</b></center>
-                   death occur every year due to cervical cancer
-                </p> 
-            </div>
-            <div id="rd-box"> 
-                <p id="p1"> 
-                    <center>
-                    	<b>4th</b>
-                    </center>
-                    most common cnacer among women in the United States is the uterine cancer
-                </p> 
-            </div>  
-              
-            <div id="th-box"> 
-            	<p>
-              <center><b>2nd</b></center>
-              most common cancer among the women in India is cervical cancer
-              </p>
-            </div> 
-        </div> 
-	  <!-- <div id="lower1">
-	    <p>1<br>
-	    in every 8 female<br>
-	    in the US is diagonised with<br>breast cancer</p> 
-	   </div>
-	   <div id="lower2">
-	   	<p>4,250<br>
-	   		deaths occur every<br>year due to cervical cancer</p>
-       </div>
-       <div id="lower3">
-       	<p>4th<br>most common cancer<br>among in the <br>United Statesis<br>is uterine cancer</p>
-       </div>
-       <div id="lower4">
-        <p>2th<br>most common cancer<br>
-        	among women in india<br>
-        is cervical cancer</p>
-       </div>-->
-        <h2 >Latest Events</h2>
-        <div class="mini">
-        	<img src="https://i.ibb.co/7t15ghL/bw.png" id="finimg">
-        	 <div class="text-block">
-    <h2><u style="color: white">Free Oral Cancer Screening</u></h2>
+  <script>
     
-  </div>
-        </div>
-          <div class="mini">
-        	<img src="https://i.ibb.co/7t15ghL/bw.png" id="finimg">
-        	 <div class="text-block">
-    <h1><u style="color: white">RHD under one roof</u></h1>
+  </script>
+</head>
 
+<body>
+  <div id="topbar">
+    <div class="home" id="home">
+      <span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
+        style="color:rgba(30,169,156,1);">cancer</span>
+    </div>
+
+    <div id="topnav">
+      <p id="signin">Sign in</p>
+      <a href="Nearest Centers">Nearest Centers</a>
+      <a href="self diagnosis">Self-Diagnosis</a>
+      <a href="survivor stories">Survivor Stories</a>
+      <a href="Articles">Articles</a>
+      <a href="types of cancer">Types of Cancer</a>
+    </div>
   </div>
-        </div>
-          <div class="mini">
-        	<img src="https://i.ibb.co/7t15ghL/bw.png" id="finimg">
-        	 <div class="text-block">
-    <h1><u style="color: white">Hawaii walk fun run</u></h1>
+  <div class="main_image_container">
+    <img src="home_banner.png" class="main_image">
   </div>
+
+  <p id="facts_header">FEMININE CANCER FACTS</div>
+
+    <div id="facts_container">
+
+      <div id="fact_group">
+        <p id="fact_header">1</p>
+        <p id="fact_text">
+          in every 8 females in US is diagnosed with breast cancer every year.
+        </p>
+      </div>
+
+      <div id="fact_group">
+        <p id="fact_header">4250</p>
+        <p id="fact_text">
+          deaths occur every year due to cervical cancer.
+        </p>
+      </div>
+
+      <div id="fact_group">
+        <p id="fact_header">4th</p>
+        <p id="fact_text">
+          most common cancer among women in the United States is the uterine cancer.
+        </p>
+      </div>
+
+      <div id="fact_group">
+        <p id="fact_header">2nd</p>
+        <p id="fact_text">
+          most common cancer among women in India is cervical cancer.
+        </p>
+      </div>
+
+    </div>
+    <h2>Gallery</h2>
+
+
+    <div id="activities" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#activities" data-slide-to="0" class="active"></li>
+        <li data-target="#activities" data-slide-to="1"></li>
+        <li data-target="#activities" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="Oral.png" alt="Screening" id="carousel_image">
+          <div class="carousel-caption">
+            <h3>Screening</h3>
+            <p>Free Oral Cancer Screening!</p>
+          </div>
         </div>
-	</body>
+
+        <div class="item">
+          <img src="RDH.png" alt="RHD" id="carousel_image">
+          <div class="carousel-caption">
+            <h3>RDH</h3>
+            <p>RDH under one roof</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="Hawaii.png" alt="Fun run" id="carousel_image">
+          <div class="carousel-caption">
+            <h3>Fun run</h3>
+            <p>Hawaii Walk Fun Run</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#activities" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#activities" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</body>
+
 </html>

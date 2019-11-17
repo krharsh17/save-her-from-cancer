@@ -1,66 +1,78 @@
-body{
-			padding: 0px;
-			margin: 0px;
-			overflow: auto;
-		}
-		
-		::-webkit-scrollbar {
-			width: 0px;
-		}
+body {
+  padding: 0px;
+  margin: 0px;
+  overflow: auto;
+}
 
-		.home {
-			float: left;
-			width: 23%;
-			height: 50px;
-			font-size: 3vw;
-			padding-top: 16px;
-			padding-left: 16px;
-			border-radius: 16px;
-			font-family: 'Ubuntu', sans-serif;
-			margin-bottom: 75px;
-		}
+::-webkit-scrollbar {
+  width: 0px;
+}
 
-		.topnav {
-			background-color: #fff;
-			overflow: clip;
-			height: 50px;
-			float: right;
-			width: 65%;
-			margin-top: 16px;
-			padding-right: 16px;
-			margin-bottom: 75px;
-		}
+html {
+  scroll-behavior: smooth;
+}
 
-		.topnav a {
-			position: relative;
-			float: right;
-			color: #000;
-			text-align: center;
-			padding: 14px 16px;
-			font-family: 'Ubuntu', sans-serif;
-			text-decoration: none;
-			font-size: 16px;
-			border-radius: 14px;
-		}
+.home {
+  float: left;
+  width: 23%;
+  height: 50px;
+  font-size: 40px;
+  margin-top: 16px;
+  padding-left: 32px;
+  border-radius: 16px;
+  font-family: "Ubuntu", sans-serif;
+  margin-bottom: 20px;
+}
 
-		.topnav a:hover {
-			color: rgba(30,169,156,1);
-			font-size: 20px;
-			transition-duration: 0.4s;
-		}
+#topnav {
+  background-color: #fff;
+  height: auto;
+  float: right;
+  width: 65%;
+  margin-top: 20px;
+  padding-right: 32px;
+  margin-bottom: 80px;
+  
+}
 
-		.topnav a.active {
-			color: rgba(30,169,156,1);
-		}
+#topnav a, #signin {
+  position: relative;
+  float: right;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  font-family: "Ubuntu", sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: -2px;
+  border-radius: 14px;
+}
 
-		.main_image {
-			display: block;
-			width: 100%;
+#topnav a:hover, #signin:hover {
+  color: rgba(30, 169, 156, 1);
+  transition-duration: 0.4s;
+  font-style: bold;
+}
 
-		}
+#topnav a.active {
+  color: rgba(30, 169, 156, 1);
+  font-size: 20px;
+}
 
-		.main_image_container {
-			width: 100%;
-			margin: 0px;
+.main_image {
+  display: block;
+  width: 100%;
+  margin-top:150px;
+}
 
-		}
+.main_image_container {
+  width: 100%;
+  margin: 0px;
+}
+
+#topbar{
+  z-index: 4;
+  margin-top: 25px;
+}
+
+

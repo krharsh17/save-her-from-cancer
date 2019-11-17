@@ -1,0 +1,163 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="main_stylesheet.css">
+    <script src="common_script.js"></script>
+    <style>
+    
+
+        h2 {
+            margin-top: 50px;
+            font-family: 'Ubuntu', sans-serif;
+            color: #000;
+            font-size: 16px;
+            margin-bottom: 100px;
+        }
+
+        #location_button {
+            text-align: center;
+            margin-top: 50px;
+            transition-duration: 1s;
+            border-radius: 16px;
+            height: 100px;
+            width: 100px;
+            padding-right: 18px;
+            padding-left: 18px;
+
+            padding-top: 18px;
+            padding-bottom: 18px;
+            animation: raise 2s 0.5s forwards;
+
+        }
+
+        @keyframes raise {
+            from {}
+
+            to {
+                border-radius: 16px;
+                box-shadow: 0px 4px 5px 2px #AAA;
+            }
+        }
+
+        #location_button:hover {
+            background-color: #DDDDDD;
+            transition-duration: 0.4s;
+        }
+
+        .list-group{
+            width: 70%;
+            margin: auto;
+            margin-bottom: 100px;
+        }
+
+        .mb-1{
+            padding-left: 50px;
+        }
+    </style>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("location_text").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById("location_text").innerHTML = "Here are the centres that are the closest to you<br>Click on them to view them on the map";
+
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var xml = xhttp.responseXML;
+                    var results = [];
+                    for (var i = 0; i < xml.getElementsByTagName("centre").length; i++) {
+                        var temp = {
+                            name: xml.getElementsByTagName("centre")[i].childNodes[1].innerHTML,
+                            address: xml.getElementsByTagName("centre")[i].childNodes[3].innerHTML,
+                            latitude: Math.abs(xml.getElementsByTagName("centre")[i].childNodes[5].innerHTML -
+                                position.coords.latitude),
+                            longitude: Math.abs(xml.getElementsByTagName("centre")[i].childNodes[7].innerHTML -
+                                position.coords.longitude),
+                                absLat: xml.getElementsByTagName("centre")[i].childNodes[5].innerHTML,
+                                absLng: xml.getElementsByTagName("centre")[i].childNodes[7].innerHTML
+                        }
+
+                        results.push(temp);
+                    }
+
+                    results.sort(function (a, b) {
+                        return (Math.sqrt(a.latitude * a.latitude + a.longitude * a.longitude) - Math.sqrt(b
+                            .latitude * b.latitude + b.longitude * b.longitude))
+                    });
+
+
+                    console.log(results);
+                    for(var i=0; i<results.length; i++){
+                        var x = results[i];
+
+                    $(".list-group").append(
+                        "<a href='https://www.google.com/maps/search/?api=1&query="+ x.absLat+ "," + x.absLng + "' class='list-group-item list-group-item-action flex-column align-items-start'>" +
+                        "<div class=d-flex w-100 justify-content-between>" +
+                        "<h3 class='mb-1'>" + x.name + "</h3></div>" +
+                        "<p class='mb-1'>" +x.address +"</p></a>");
+                    }
+
+                    document.getElementById("list-group").scrollIntoView();
+
+
+                }
+
+            };
+            xhttp.open("GET", "http://localhost:9000/centre_data", true);
+            xhttp.send();
+        }
+
+        // document.getElementById("location_button").addEventListener('click', function (ev) {
+        //     console.log("clicked");
+        //     geoLocation();
+        // });
+    </script>
+</head>
+
+<body>
+    <div id="topbar">
+        <div class="home" id="home">
+            <span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
+                style="color:rgba(30,169,156,1);">cancer</span>
+        </div>
+
+        <div id="topnav">
+            <p id="signin">Sign in</p>
+            <a href="Nearest Centers">Nearest Centers</a>
+            <a href="self diagnosis">Self-Diagnosis</a>
+            <a href="survivor stories">Survivor Stories</a>
+            <a href="Articles">Articles</a>
+            <a href="types of cancer">Types of Cancer</a>
+        </div>
+    </div>
+    <div class="main_image_container">
+        <img src="nearest_centres_banner.png" class="main_image">
+    </div>
+    <div style="width: 100%; text-align: center;">
+
+        <img src="find_me.png" id="location_button" onclick="getLocation()">
+
+        <h2 id="location_text">Please let us know your location to help find the nearest cancer help centres</h2>
+    </div>
+
+    <div class="list-group" id="list-group">
+        
+    </div>
+
+</body>
+
+</html>
