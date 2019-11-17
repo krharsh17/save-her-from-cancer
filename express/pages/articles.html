@@ -44,9 +44,21 @@
           window.open("login", "_self");
         });
       }
+
+      $.get("fetch_articles", function (data, status, jqXHR) {
+        document.getElementById("page_title_text").innerHTML = "Expert's Accounts";
+        data.forEach(element => {
+          console.log(element.id);
+          $(".list").append("<div id='list_item'><a href='article?id=" + element.id + "'><img src='item" +
+            Math.round(Math
+              .random() * 10) + ".png'></a><div><h1>" + element.title + "</h1><h2>By " + element.author +
+            "</h2></div></div>");
+
+        });
+      });
     }
 
-    function createArticle(){
+    function createArticle() {
       window.open("/create article", "_self");
     }
   </script>
@@ -156,38 +168,11 @@
   </div>
 
   <div id="page_title">
-    <h1>Expert's Accounts</h1>
+    <h1 id="page_title_text">Loading</h1>
   </div>
-
-  <div id="list_item">
-    <a href="article?id=1">
-      <img src="item1.png">
-    </a>
-    <div>
-      <h1>The Women Empowerment</h1>
-      <h2>By Dr.Wikipedia Media</h2>
-    </div>
-  </div>
+  <div class="list">
 
 
-  <div id="list_item">
-    <a href="article?id=1">
-      <img src="item1.png">
-    </a>
-    <div>
-      <h1>The Women Empowerment</h1>
-      <h2>By Dr.Wikipedia Media</h2>
-    </div>
-  </div>
-
-  <div id="list_item">
-    <a href="article?id=1">
-      <img src="item1.png">
-    </a>
-    <div>
-      <h1>The Women Empowerment</h1>
-      <h2>By Dr.Wikipedia Media</h2>
-    </div>
   </div>
 
 </html>

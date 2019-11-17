@@ -1,0 +1,123 @@
+<html>
+
+<head>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<link type="text/css" rel="stylesheet" href="main_stylesheet.css">
+	<script src="common_script.js" ></script>
+	<style>
+		.article_title {
+			font-family: 'Ubuntu', sans-serif;
+			font-size: 50px;
+			color: #AE9CDA;
+			margin-left: 100px;
+			margin-right: 100px;
+			margin-top: 100px;
+		}
+
+		.article_author {
+			font-family: 'Ubuntu', sans-serif;
+			font-size: 18px;
+			color: #000;
+			margin-left: 100px;
+			margin-right: 100px;
+		}
+
+		.article_text {
+			font-family: 'Open Sans', sans-serif;
+			font-size: 24px;
+			color: #000;
+			margin-left: 100px;
+			margin-right: 100px;
+		}
+	</style>
+
+	<script>
+		window.onload = function () {
+			var signedIn = "false";
+
+			if (signedIn.startsWith("true")) {
+				// button.style.display = "none";
+				document.getElementById("signin").innerHTML = "Signed In";
+			}
+
+			document.getElementById("signin").addEventListener("click", (ev) => {
+
+				var signedIn = getCookie("signedIn");
+				signedIn = "false";
+
+				if (signedIn.startsWith("true")) {
+					//TODO Code to logout
+				} else {
+					window.open("login", "_self");
+				}
+
+			});
+
+		}
+
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+			var expires = "expires=" + d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+
+		function checkCookie() {
+			var user = getCookie("username");
+			if (user != "") {
+				alert("Welcome again " + user);
+			} else {
+				user = prompt("Please enter your name:", "");
+				if (user != "" && user != null) {
+					setCookie("username", user, 365);
+				}
+			}
+		}
+	</script>
+</head>
+
+<body>
+	
+	<div id="topbar">
+		<div class="home">
+			<span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
+				style="color:rgba(30,169,156,1);">cancer</span>
+		</div>
+
+		<div id="topnav">
+			<a href="login" id="signin">Sign in</a>
+			<a href="Nearest Centers">Nearest Centers</a>
+			<a href="self diagnosis">Self-Diagnosis</a>
+			<a href="survivor stories">Survivor Stories</a>
+			<a href="Articles">Articles</a>
+			<a href="types of cancer">Types of Cancer</a>
+		</div>
+	</div>
+	<div class="main_image_container">
+		<img src="type_banner.png" class="main_image">
+	</div>
+	<h1 class="article_title">$</h1>
+	<p class="article_author">$</p>
+	<p class="article_text">$</p>
+
+</html>

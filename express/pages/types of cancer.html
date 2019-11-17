@@ -56,6 +56,18 @@
     }
 
   </style>
+<script>
+$.get("fetch_types", function (data, status, jqXHR) {
+  document.getElementById("page_title_text").innerHTML = "Types of female cancer"
+        data.forEach(element => {
+          console.log(element.id);
+          $(".list").append("<div id='list_item'><a href='type?id=" + element.id + "'><img src='item" +
+            (element.id%10) + ".png'></a><div><h1>" + element.title + "</h1><h2>By " + element.author +
+            "</h2></div></div>");
+
+        });
+      });</script>
+
 
 </head>
 
@@ -80,38 +92,8 @@
   </div>
 
   <div id="page_title">
-    <h1>Types of female cancer</h1>
+    <h1 id="page_title_text">Loading</h1>
   </div>
-
-  <div id="list_item">
-    <a href="article?id=1">
-      <img src="item1.png">
-    </a>
-    <div>
-      <h1>The Women Empowerment</h1>
-      <h2>By Dr.Wikipedia Media</h2>
+<div class="list">
     </div>
-  </div>
-
-
-  <div id="list_item">
-      <a href="article?id=1">
-        <img src="item1.png">
-      </a>
-      <div>
-        <h1>The Women Empowerment</h1>
-        <h2>By Dr.Wikipedia Media</h2>
-      </div>
-    </div>
-
-    <div id="list_item">
-        <a href="article?id=1">
-          <img src="item1.png">
-        </a>
-        <div>
-          <h1>The Women Empowerment</h1>
-          <h2>By Dr.Wikipedia Media</h2>
-        </div>
-      </div>
-
 </html>

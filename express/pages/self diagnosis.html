@@ -87,7 +87,7 @@
             margin-bottom: 32px;
         }
 
-        #quiz_card{
+        #quiz_card {
             width: 60%;
             margin: auto;
             box-shadow: 0px 5px 5px 1px #cacaca;
@@ -96,7 +96,7 @@
             margin-bottom: 50px;
         }
 
-        #options{
+        #options {
             margin-bottom: 32px;
             margin-top: 16px;
             text-align: center;
@@ -106,14 +106,14 @@
             font-family: 'Open Sans', sans-serif;
         }
 
-        #question{
+        #question {
             text-align: left;
             color: #455c68;
             font-weight: 600;
             font-size: 20px;
         }
 
-        #submit_button{
+        #submit_button {
             background: #608394;
             color: white;
             font-family: 'DM Sans', sans-serif;
@@ -124,17 +124,35 @@
             border-radius: 16px;
         }
 
-        #submit_button:hover{
-            color: #608394;
-            background: white;
-            border: 1px solid #608394;
-            outline-offset: -1px;
-            transition-duration: 0.4s;
+        #submit_button:hover {
+            color: white;
+            background: #76a2b8;
+            /* border: 1px solid #608394; */
+            /* outline-offset: -1px; */
+            transition-duration: 0.3s;
         }
     </style>
 
     <script>
-
+        function generateResult() {
+            var yes = 0;
+            var no = 0;
+            for (var i = 1; i < 6; i++) {
+                var options = document.getElementsByName("optradio" + i);
+                if (options[0].checked)
+                    yes++;
+                else no++;
+            }
+            yes++;
+            if (yes > no){
+                alert("Thanks for taking the test! You are advised to get yourself checked by a medical practitioner");
+                window.open("Nearest Centers", "_self");
+            }else{
+                alert("Thanks for taking the test! You seem to be free of any forms of cancer");
+                window.open("home", "_self");
+        }
+            
+        }
     </script>
 </head>
 
@@ -166,36 +184,36 @@
         <div id="question">Do you experience any abnormal pain that has persisted for very long?</div>
 
         <div id="options">
-            <label class="radio-inline"><input type="radio" name="optradio" id="yes1">Yes</label>
-            <label class="radio-inline"><input type="radio" name="optradio" id="no1">No</label>
+            <label class="radio-inline"><input type="radio" name="optradio1" id="yes1">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio1" id="no1">No</label>
         </div>
 
         <div id="question">Have you lost significant weight at once, recently?</div>
 
         <div id="options">
-            <label class="radio-inline"><input type="radio" name="optradio" id="yes2">Yes</label>
-            <label class="radio-inline"><input type="radio" name="optradio" id="no2">No</label>
+            <label class="radio-inline"><input type="radio" name="optradio2" id="yes2">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio2" id="no2">No</label>
         </div>
 
         <div id="question">Do you experience constant fatigue?</div>
 
         <div id="options">
-            <label class="radio-inline"><input type="radio" name="optradio" id="yes3">Yes</label>
-            <label class="radio-inline"><input type="radio" name="optradio" id="no3">No</label>
+            <label class="radio-inline"><input type="radio" name="optradio3" id="yes3">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio3" id="no3">No</label>
         </div>
 
         <div id="question">Do you have a fever that has been lasting more than 3 days?</div>
 
         <div id="options">
-            <label class="radio-inline"><input type="radio" name="optradio" id="yes4">Yes</label>
-            <label class="radio-inline"><input type="radio" name="optradio" id="no4">No</label>
+            <label class="radio-inline"><input type="radio" name="optradio4" id="yes4">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio4" id="no4">No</label>
         </div>
 
         <div id="question">Do you notice any unusual changes on your skin?</div>
 
         <div id="options">
-            <label class="radio-inline"><input type="radio" name="optradio" id="yes5">Yes</label>
-            <label class="radio-inline"><input type="radio" name="optradio" id="no5">No</label>
+            <label class="radio-inline"><input type="radio" name="optradio5" id="yes5">Yes</label>
+            <label class="radio-inline"><input type="radio" name="optradio5" id="no5">No</label>
         </div>
 
         <div id="question">Do you have any sores that do not heal?</div>
@@ -205,7 +223,7 @@
             <label class="radio-inline"><input type="radio" name="optradio" id="no6">No</label>
         </div>
 
-        <div id="submit_button">View Results</div>
+        <div id="submit_button" onclick="generateResult()">View Results</div>
     </div>
 
 

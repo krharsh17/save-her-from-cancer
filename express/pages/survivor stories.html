@@ -11,6 +11,38 @@
   <script src="common_script.js"></script>
   <style>
 
+#contribute_button {
+      padding-right: 32px;
+      padding-left: 32px;
+      border-radius: 16px;
+      padding-bottom: 8px;
+      background-color: #1EA99C;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      color: white;
+      position: absolute;
+      text-align: center;
+      right: 48px;
+      top: 560px;
+    }
+
+    #contribute_button:hover {
+      padding-right: 32px;
+      padding-left: 32px;
+      border-radius: 16px;
+      color: #1EA99C;
+      padding-bottom: 8px;
+      box-shadow: 0px 4px 5px 2px #AAA;
+      background-color: white;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 14px;
+      position: absolute;
+      text-align: center;
+      right: 48px;
+      top: 560px;
+      transition-duration: 0.3s;
+    }
+
     #page_title {
       font-family: 'Ubuntu', sans-serif;
       font-size: 20px;
@@ -57,6 +89,62 @@
 
   </style>
 
+  <script>
+    window.onload = () => {
+      var signedIn = getCookie("signedIn");
+      console.log(signedIn.startsWith("true"));
+
+      if (signedIn.startsWith("true")) {
+        document.getElementById("contribute_button").style.display = "block";
+        console.log("hidden");
+      } else {
+        document.getElementById("contribute_button").style.display = "none";
+        console.log("shown");
+      }
+
+      document.getElementById("home").addEventListener('click', function (ev) {
+        window.open("home", "_self");
+      });
+      var signedIn = getCookie("signedIn");
+
+      this.console.log(signedIn);
+
+      if (signedIn.startsWith("true")) {
+        document.getElementById("signin").innerHTML = "Sign Out";
+        document.getElementById("signin").addEventListener('click', function (ev) {
+          setCookie("signedIn", "false");
+          console.log("shouldn't be clicked");
+          alert("You have been signed out successfully!");
+          document.location.reload();
+        });
+      } else {
+        document.getElementById("signin").innerHTML = "Sign In";
+        document.getElementById("signin").addEventListener('click', function (ev) {
+          console.log("clicked");
+          window.open("login", "_self");
+        });
+      }
+
+      $.get("fetch_stories", function (data, status, jqXHR) {
+        document.getElementById("page_title_text").innerHTML = "Survivors' Lores";
+        data.forEach(element => {
+          console.log(element.id);
+          $(".list").append("<div id='list_item'><a href='story?id=" + element.id + "'><img src='item" +
+            Math.round(Math
+              .random() * 10) + ".png'></a><div><h1>" + element.title + "</h1><h2>By " + element.author +
+            "</h2></div></div>");
+
+        });
+      });
+    }
+
+    function createStory() {
+      window.open("/create story", "_self");
+    }
+
+    
+  </script>
+
 </head>
 
 <body>
@@ -79,39 +167,18 @@
     <img src="survivors_banner.png" class="main_image">
   </div>
 
+  <div id="contribute_button" onclick="createStory()">
+      <h2>Tell a story</h2>
+    </div>
+
   <div id="page_title">
-    <h1>Survivors' Lores</h1>
+    <h1 id="page_title_text">Loading</h1>
   </div>
 
-  <div id="list_item">
-    <a href="story?id=1">
-      <img src="item1.png">
-    </a>
-    <div>
-      <h1>The Women Empowerment</h1>
-      <h2>By Dr.Wikipedia Media</h2>
+  
+  <div class="list">
+
+
     </div>
-  </div>
-
-
-  <div id="list_item">
-      <a href="story?id=1">
-        <img src="item1.png">
-      </a>
-      <div>
-        <h1>The Women Empowerment</h1>
-        <h2>By Dr.Wikipedia Media</h2>
-      </div>
-    </div>
-
-    <div id="list_item">
-        <a href="story?id=1">
-          <img src="item1.png">
-        </a>
-        <div>
-          <h1>The Women Empowerment</h1>
-          <h2>By Dr.Wikipedia Media</h2>
-        </div>
-      </div>
 
 </html>

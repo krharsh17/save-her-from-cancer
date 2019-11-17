@@ -1,0 +1,179 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="main_stylesheet.css">
+    <script src="common_script.js"></script>
+    <style>
+        .article_title {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 50px;
+            color: #AE9CDA;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 100px;
+        }
+
+        .article_author {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 18px;
+            color: #000;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .article_text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 24px;
+            color: #000;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+
+        #create_card {
+            width: 70%;
+            margin: auto;
+            margin-bottom: 100px;
+            margin-top: 40px;
+            box-shadow: 0px 5px 5px 1px #cacaca;
+            padding: 32px;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            font-size: 16px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #create_card input {
+            font-weight: 700;
+        }
+
+        h1 {
+            font-family: 'Ubuntu', sans-serif;
+            color: #608394;
+            margin-bottom: 32px;
+            margin-left: 32px;
+            margin-top: 32px;
+        }
+
+        #submit {
+            background-color: #608394;
+            color: white;
+            border-radius: 16px;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            text-align: center;
+            width: 80%;
+            font-size: 24px;
+            margin: auto;
+        }
+
+        #submit:hover {
+            color: #608394;
+            background-color: white;
+            border: 1px solid #608394;
+            transition-duration: 0.4s;
+        }
+    </style>
+
+
+    <script>
+
+        function submit() {
+            console.log("clicked")
+            var title = $("#article_heading").val();
+            var content = $("#article_text").val();
+            var author = getCookie("token");
+            $.post("http://localhost:9000/createStory", {
+                title: title,
+                content: content,
+                author: author
+            }, function (data) {
+                if (data === 'SUCCESSFUL') {
+                    alert("Story shared successfully!");
+                    window.open("articles", "_self");
+                }
+            });
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user != "") {
+                alert("Welcome again " + user);
+            } else {
+                user = prompt("Please enter your name:", "");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 365);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="topbar">
+        <div class="home">
+            <span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
+                style="color:rgba(30,169,156,1);">cancer</span>
+        </div>
+
+        <div id="topnav">
+            <a href="login" id="signin">Sign in</a>
+            <a href="Nearest Centers">Nearest Centers</a>
+            <a href="self diagnosis">Self-Diagnosis</a>
+            <a href="survivor stories">Survivor Stories</a>
+            <a href="Articles">Articles</a>
+            <a href="types of cancer">Types of Cancer</a>
+        </div>
+    </div>
+    <div class="main_image_container">
+        <img src="create_story_banner.png" class="main_image">
+    </div>
+
+    <h1>Share your experience</h1>
+
+    <div id="create_card">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="article_heading" placeholder="Choose a title">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" rows="15" id="article_text" placeholder="Write here.."></textarea>
+            </div>
+        </form>
+        <div id="Submit" onclick="submit()">
+            Share
+
+        </div>
+
+    </div>
+
+</html>
