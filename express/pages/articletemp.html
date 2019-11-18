@@ -33,65 +33,13 @@
 			color: #000;
 			margin-left: 100px;
 			margin-right: 100px;
+			margin-bottom: 100px;
 		}
 	</style>
 
 	<script>
-		window.onload = function () {
-			var signedIn = "false";
+		function documentReady(){
 
-			if (signedIn.startsWith("true")) {
-				// button.style.display = "none";
-				document.getElementById("signin").innerHTML = "Signed In";
-			}
-
-			document.getElementById("signin").addEventListener("click", (ev) => {
-
-				var signedIn = getCookie("signedIn");
-				signedIn = "false";
-
-				if (signedIn.startsWith("true")) {
-					//TODO Code to logout
-				} else {
-					window.open("login", "_self");
-				}
-
-			});
-
-		}
-
-		function setCookie(cname, cvalue, exdays) {
-			var d = new Date();
-			d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-			var expires = "expires=" + d.toUTCString();
-			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-		}
-
-		function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i];
-				while (c.charAt(0) == ' ') {
-					c = c.substring(1);
-				}
-				if (c.indexOf(name) == 0) {
-					return c.substring(name.length, c.length);
-				}
-			}
-			return "";
-		}
-
-		function checkCookie() {
-			var user = getCookie("username");
-			if (user != "") {
-				alert("Welcome again " + user);
-			} else {
-				user = prompt("Please enter your name:", "");
-				if (user != "" && user != null) {
-					setCookie("username", user, 365);
-				}
-			}
 		}
 	</script>
 </head>
@@ -99,7 +47,7 @@
 <body>
 	
 	<div id="topbar">
-		<div class="home">
+		<div class="home" id="home">
 			<span>save</span><span style="color:rgba(30,169,156,1);">her</span><span>from</span><span
 				style="color:rgba(30,169,156,1);">cancer</span>
 		</div>
@@ -116,61 +64,12 @@
 	<div class="main_image_container">
 		<img src="https://i.ibb.co/PtSDnc7/Group-43.png" class="main_image">
 	</div>
-	<h1 class="article_title">Cancer Research</h1>
-	<p class="article_author">krharsh17 | 11/17/2019, 8:19:49 PM</p>
-	<p class="article_text">Cancer research encompasses a broad array of research and includes a diverse range of specific research
-topics. Within this report, cancer research is defined as
-research where the published results include ‘cancer’ or
-‘oncology’ within the title, abstract, or list of keywords of
-the publications, as indexed in the Scopus database. This
-includes all publication types, namely articles, reviews,
-conference papers, book chapters, notes, letters, short
-surveys, editorials, articles in press, erratum, books,
-conference reviews, business articles, and abstract reports. Articles represent 77% of the research, and reviews
-represent 14% of the publications retrieved. The countries selected for analysis produce the highest number of
-cancer research publications in 2014. Top cancer research
-institutions were identified by selecting the institutions
-with the highest number of citations in cancer research
-over the period 2011-2015.<br>
-In 2014, cancer research represents over 4 % of all research performed globally, reflecting the huge amount of
-effort that has been invested worldwide to address this
-multifaceted and complex disease. Today it is the leading
-cause of premature death in 28 European countries1
-and across the United States (US)2. Worldwide, cancer
-research output has increased year on year over the past
-decade and has seen notable advances in our understanding, diagnosis, and treatment of this disease. For
-example, to date, the US Food and Drug Administration
-has approved two vaccines (Gardasil, and later Cervarix) against Human Papilloma Virus (HPV), a virus that
-can cause cervical cancer in women. While initially the
-vaccines were only approved for young women and girls,
-research that linked HPV to a variety of other cancers
-led to the expansion of the vaccine recommendation to
-young men and boys as well. This single advance has cut
-cervical cancer risk, making it one of the most preventable cancers. Similarly in 2001, Imatinib (Gleevec) was
-approved for the targeted treatment of a rare chronic
-myelogenous leukemia. By attacking specific molecular
-defects in patients while successfully sparing healthy
-cells, this treatment transformed a rare deadly cancer
-from being a disease with an acute three to five year life
-expectancy, into a more chronic long-term, manageable
-condition. Despite such advances, the impact of cancer
-remains high and the number of cases is projected to
-nearly double over the next twenty years as the global
-population ages3.<br>
-Analysis of cancer research reveals that the US hosts a
-large fraction of the world’s leading cancer research institutions4 (see Cancer Research Institutions Map) and cancer research output from the US represents the largest
-share of global output in the field (see Figure 1). The US
-share of cancer research has been declining over the past
-decade. This is largely the result of significant increase
-in China’s cancer research publication output, which
-constitutes 17% of the global publication share in 2014,
-up from 5% in 2005 (see Figure 1). The impact of cancer
-research, which can be examined via field-weighted
-citation impact5 (FWCI), has risen over the past decade
-for most of the countries included in this analysis. China
-has seen a particularly large increase in FWCI from just
-above 0.5 in 2005 to above 1.2 in 2014. Japan, France,
-Germany, Italy, and the UK have also seen an overall increase in FWCI over the past decade while the FWCI for
-US cancer research has been stable over the past decade.</p>
+	<h1 class="article_title">Impact of Cancer Awareness Drive on Generating Awareness of and Improving Screening for Cervical Cancer: A Study Among Schoolteachers in India</h1>
+	<p class="article_author">krharsh17 | 11/18/2019, 2:44:11 PM</p>
+	<p class="article_text">Cancer is a major public health problem both in our country and worldwide because of its disease burden, fatality, and tendency toward increased incidence.1 Globally, cervical cancer is the second most prevalent cancer among all populations and third most common type of cancer after breast and lung cancers among women.2 The global burden of cervical cancer is disproportionately high in developing countries, where 85% of the estimated 493,000 new cases and 273,000 deaths occur worldwide.3 India, which accounts for one sixth of the world’s population, also bears one fifth of the world’s cervical cancer burden.4 Over the past 40 years, mortality resulting from carcinoma of the cervix has fallen because of improved treatment and the introduction of national screening programs.5 The Papanicolaou (Pap) test is the main screening method used for the secondary prevention of cervical cancer. It can detect precancerous cells easily.6 The Pap test is an effective method of detecting, preventing, and delaying the progress of cervical cancer.<br><br>
+
+Cervical cancer is the second most common cause of cancer mortality among women in India; however, it is a largely preventable disease.8 In India, the cervical cancer incidence is one fifth of the world’s incidence.9 Awareness and health-seeking practices have been shown to be poor in many developing countries, necessitating the need for proper awareness programs.10-12 With improvement in cancer technology, we have been able to improve quality of life, but improvement in survival is still questionable. In India, late presentation is attributed to many factors, notably a lack of knowledge and awareness of and a lethargic attitude toward safe health practices.
+<br><br>
+Several studies have shown that the knowledge of cervical cancer and practices for early detection are at a low level among women.12 Because early detection is one way to reduce morbidity and mortality resulting from cervical cancer, there is work going on, although limited, to increase knowledge, safe practices, and attitudes regarding cervical cancer among schoolteachers in India. The purpose of this study is to measure the level of awareness of cervical cancer risk factors and safe practices among college teachers of different states of India and the impact of awareness programs on changes in the adoption of safe practices for prevention and early detection.<br><br></p>
 
 </html>

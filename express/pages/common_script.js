@@ -22,6 +22,7 @@ window.addEventListener('scroll', function (event) {
 window.onload = function () {
 
 
+
     document.getElementById("home").addEventListener('click', function (ev) {
         window.open("home", "_self");
     });
@@ -30,8 +31,8 @@ window.onload = function () {
 
     if (signedIn.startsWith("true")) {
         document.getElementById("signin").innerHTML = "Sign Out";
-        
-    this.console.log(signedIn);
+
+        this.console.log(signedIn);
         document.getElementById("signin").addEventListener('click', function (ev) {
             setCookie("signedIn", "false");
             alert("You have been signed out successfully!");
@@ -46,7 +47,7 @@ window.onload = function () {
 
     $('[data-toggle="popover"]').popover();
 
-
+    documentReady();
 }
 
 function setCookie(cname, cvalue, exdays) {

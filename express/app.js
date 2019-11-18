@@ -40,11 +40,11 @@ app.get('/Nearest%20Centers', function (req, res) {
     res.sendFile(path.join(__dirname + '\\pages\\nearest centres.html'))
 });
 
-app.get('/create%20article', function(req, res){
+app.get('/create%20article', function (req, res) {
     res.sendFile(path.join(__dirname, '\\pages\\create article.html'));
 });
 
-app.get('/self%20diagnosis', function(req, res){
+app.get('/self%20diagnosis', function (req, res) {
     res.sendFile(path.join(__dirname, '\\pages\\self diagnosis.html'));
 })
 
@@ -98,24 +98,40 @@ app.get('/input', (req, res) => {
         };
 
         var article = {
-            title: "Cervical Cancer",
+            title: "Ovarian Cancer",
             id: Date.now(),
-            author: "Ana R., Cervical Cancer Survivor | 23-11-2019",
-            content: "Cervical cancer is a disease in which malignant (cancer) cells form in the tissues of the cervix.<br><br>" +
-            "Human papillomavirus (HPV) infection is the major risk factor for cervical cancer.<br><br>" +
-            "There are usually no signs or symptoms of early cervical cancer but it can be detected early with regular check-ups.<br><br>" +
-            "Signs and symptoms of cervical cancer include vaginal bleeding and pelvic pain.<br><br>" +
-            "Tests that examine the cervix are used to detect (find) and diagnose cervical cancer.<br><br>" +
-            "Certain factors affect prognosis (chance of recovery) and treatment options.<br><br>"
+            author: "Amy S., Ovarian Cancer Survivor | 23-11-2019",
+            content: "Historically, ovarian cancer was called the“ silent killer” because symptoms were not thought to develop until the chance of cure was poor.However, " +
+            "recent studies have shown this term is untrue and that the following signs are much more likely to occur in women with ovarian cancer than in women in the general population, " +
+            "even in patients with early - stage disease.<br><br>" +
+
+            "These symptoms include:<br>" +
+
+                "Bloating<br>" +
+            "Pelvic or abdominal pain<br>" +
+            "Difficulty eating or feeling full quickly<br>" +
+            "Urinary symptoms(urgency or frequency)<br>" +
+            "Women with ovarian cancer report that symptoms are persistent and represent a change from normal " +
+            "for their bodies.The frequency or number of ovarian cancer signs are key factors in the diagnosis of ovarian cancer.Several studies show that even early - stage ovarian cancer can produce these symptoms.<br><br>" +
+
+            "Women who have these symptoms almost daily " +
+            "for more than a few weeks should see their doctor, " +
+            "preferably a gynecologist.Prompt medical evaluation may lead to detection at the earliest possible stage of the disease.Early - stage diagnosis is associated with an improved prognosis.Several other symptoms have been commonly reported by women with ovarian cancer.These symptoms include fatigue, " +
+            "indigestion, " +
+            "back pain, " +
+            "pain with intercourse, " +
+            "constipation, " +
+            "and menstrual irregularities.However, " +
+            "these other symptoms are not as useful in identifying ovarian cancer because they are also found in equal frequency in women in the general population who do not have ovarian cancer.<br><br>"
         }
 
 
 
-        // db.collection("type").insertOne(article, function (err, result) {
-        //     console.log(result);
-        // });
+        db.collection("type").insertOne(article, function (err, result) {
+            console.log(result);
+        });
 
-        db.collection("stories").deleteMany({});
+        // db.collection("stories").deleteMany({});
 
         if (err) throw err;
 
@@ -243,9 +259,9 @@ app.get('/fetch_articles', (req, res) => {
             throw err
         };
 
-        db.collection("articles").find({}).toArray(function(err, articles_list){
+        db.collection("articles").find({}).toArray(function (err, articles_list) {
             var articles = [];
-            articles_list.forEach(function(val, index, arr){
+            articles_list.forEach(function (val, index, arr) {
                 articles.push(val);
             });
             res.send(articles);
@@ -262,9 +278,9 @@ app.get('/fetch_stories', (req, res) => {
             throw err
         };
 
-        db.collection("stories").find({}).toArray(function(err, articles_list){
+        db.collection("stories").find({}).toArray(function (err, articles_list) {
             var articles = [];
-            articles_list.forEach(function(val, index, arr){
+            articles_list.forEach(function (val, index, arr) {
                 articles.push(val);
             });
             res.send(articles);
@@ -281,9 +297,9 @@ app.get('/fetch_types', (req, res) => {
             throw err
         };
 
-        db.collection("type").find({}).toArray(function(err, articles_list){
+        db.collection("type").find({}).toArray(function (err, articles_list) {
             var articles = [];
-            articles_list.forEach(function(val, index, arr){
+            articles_list.forEach(function (val, index, arr) {
                 articles.push(val);
             });
             res.send(articles);

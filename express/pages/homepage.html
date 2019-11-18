@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link type="text/css" rel="stylesheet" href="main_stylesheet.css">
   <script src="common_script.js"></script>
   <style>
     #fact_header {
@@ -36,20 +35,28 @@
       margin-bottom: 50px;
     }
 
-    #facts_header {
+    #facts_header_container {
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       background: #F5F5F5;
       padding-top: 72px;
-      margin-bottom: -32px;
+      margin-bottom: -50px;
+      opacity: 1.0;
       margin-top: -10px;
       text-align: center;
       color: #B4B8BC;
     }
+    
+    #facts_header {
+      opacity: 0.0;
+    }
+
 
     #fact_group {
       width: 25%;
       float: left;
+      opacity: 0.0;
+      bottom: 15px;
       height: auto;
     }
 
@@ -59,16 +66,16 @@
       margin: auto;
     }
 
-    #activities{
-      margin-top:100px;
+    #activities {
+      margin-top: 100px;
       width: 80%;
-      margin-left:auto;
+      margin-left: auto;
       margin-right: auto;
       margin-bottom: 50px;
 
     }
 
-    h2{
+    h2 {
       font-family: 'Ubuntu', sans-serif;
       color: #000;
       font-size: 32px;
@@ -76,11 +83,149 @@
       margin-top: 50px;
       margin-bottom: -40px;
     }
+  </style>
 
+  <style>
+    body {
+      padding: 0px;
+      margin: 0px;
+      overflow: auto;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .home {
+      float: left;
+      width: 23%;
+      height: 50px;
+      font-size: 40px;
+      margin-top: 16px;
+      opacity: 0.0;
+      position: relative;
+      bottom: 5px;
+      padding-left: 32px;
+      border-radius: 16px;
+      font-family: "Ubuntu", sans-serif;
+      margin-bottom: 20px;
+    }
+
+    #topnav {
+      background-color: #fff;
+      height: auto;
+      float: right;
+      width: 65%;
+      margin-top: 20px;
+      padding-right: 32px;
+      margin-bottom: 80px;
+
+    }
+
+    #topnav a,
+    #signin {
+      position: relative;
+      float: right;
+      color: #000;
+      text-align: center;
+      padding: 14px 16px;
+      font-family: "Ubuntu", sans-serif;
+      text-decoration: none;
+      font-size: 16px;
+      left: 5px;
+      opacity: 0.0;
+      margin-bottom: -2px;
+      border-radius: 14px;
+    }
+
+    #topnav a:hover,
+    #signin:hover {
+      color: rgba(30, 169, 156, 1);
+      transition-duration: 0.4s;
+      font-style: bold;
+    }
+
+    #topnav a.active {
+      color: rgba(30, 169, 156, 1);
+      font-size: 20px;
+    }
+
+    .main_image {
+      display: block;
+      width: 100%;
+      opacity: 0.0;
+      margin-top: 150px;
+    }
+
+    .main_image_container {
+      width: 100%;
+      margin: 0px;
+    }
+
+    #topbar {
+      z-index: 4;
+      margin-top: 25px;
+    }
   </style>
 
   <script>
-    
+    function documentReady() {
+      $("#home").animate({
+        "opacity": "1.0",
+        "bottom": "-=5px"
+      }, 600);
+
+      $("#topnav a").each(function (i) {
+        var el = $(this);
+        setTimeout(function () {
+          el.animate({
+            "left": "0",
+            "opacity": "1.0"
+          }, 600);
+        }, (i + 1) * 200);
+      });
+
+      $("#signin").each(function (i) {
+        var el = $(this);
+        setTimeout(function () {
+          el.animate({
+            "left": "0",
+            "opacity": "1.0"
+          }, 1000);
+        }, i * 200);
+      });
+
+      this.setTimeout(function () {
+        $(".main_image").animate({
+          "opacity": "1.0",
+        }, 1200);
+      }, 1000);
+
+      setTimeout(function () {
+        document.body.scrollTop = 400;
+
+        $("#facts_container div").each(function (i) {
+          var ef = $(this);
+          $("#facts_header").animate({
+            "opacity": "1.0"
+          }, 1000)
+
+          setTimeout(function () {
+            ef.animate({
+              "opacity": "1.0",
+              "bottom": "-=15px"
+            }, 1000);
+          }, (i + 1) * 400);
+        });
+
+      }, 2500);
+
+
+    }
   </script>
 </head>
 
@@ -100,91 +245,87 @@
       <a href="types of cancer">Types of Cancer</a>
     </div>
   </div>
-  <div class="main_image_container">
+  <div class="main_image_container" id="main_image">
     <img src="home_banner.png" class="main_image">
   </div>
-
-  <p id="facts_header">FEMININE CANCER FACTS</div>
-
-    <div id="facts_container">
-
-      <div id="fact_group">
-        <p id="fact_header">1</p>
-        <p id="fact_text">
-          in every 8 females in US is diagnosed with breast cancer every year.
-        </p>
-      </div>
-
-      <div id="fact_group">
-        <p id="fact_header">4250</p>
-        <p id="fact_text">
-          deaths occur every year due to cervical cancer.
-        </p>
-      </div>
-
-      <div id="fact_group">
-        <p id="fact_header">4th</p>
-        <p id="fact_text">
-          most common cancer among women in the United States is the uterine cancer.
-        </p>
-      </div>
-
-      <div id="fact_group">
-        <p id="fact_header">2nd</p>
-        <p id="fact_text">
-          most common cancer among women in India is cervical cancer.
-        </p>
-      </div>
-
+  <div id="facts_header_container">
+    <p id="facts_header">FEMININE CANCER FACTS</p>
+  </div>
+  <div id="facts_container">
+    <div id="fact_group">
+      <p id="fact_header">1</p>
+      <p id="fact_text">
+        in every 8 females in US is diagnosed with breast cancer every year.
+      </p>
     </div>
-    <h2>Gallery</h2>
+    <div id="fact_group">
+      <p id="fact_header">4250</p>
+      <p id="fact_text">
+        deaths occur every year due to cervical cancer.
+      </p>
+    </div>
+    <div id="fact_group">
+      <p id="fact_header">4th</p>
+      <p id="fact_text">
+        most common cancer among women in the United States is the uterine cancer.
+      </p>
+    </div>
+    <div id="fact_group">
+      <p id="fact_header">2nd</p>
+      <p id="fact_text">
+        most common cancer among women in India is cervical cancer.
+      </p>
+    </div>
+  </div>
+  </div>
+  <h2>Gallery</h2>
 
 
-    <div id="activities" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#activities" data-slide-to="0" class="active"></li>
-        <li data-target="#activities" data-slide-to="1"></li>
-        <li data-target="#activities" data-slide-to="2"></li>
-      </ol>
+  <div id="activities" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#activities" data-slide-to="0" class="active"></li>
+      <li data-target="#activities" data-slide-to="1"></li>
+      <li data-target="#activities" data-slide-to="2"></li>
+    </ol>
 
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="Oral.png" alt="Screening" id="carousel_image">
-          <div class="carousel-caption">
-            <h3>Screening</h3>
-            <p>Free Oral Cancer Screening!</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="RDH.png" alt="RHD" id="carousel_image">
-          <div class="carousel-caption">
-            <h3>RDH</h3>
-            <p>RDH under one roof</p>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="Hawaii.png" alt="Fun run" id="carousel_image">
-          <div class="carousel-caption">
-            <h3>Fun run</h3>
-            <p>Hawaii Walk Fun Run</p>
-          </div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="Oral.png" alt="Screening" id="carousel_image">
+        <div class="carousel-caption">
+          <h3>Screening</h3>
+          <p>Free Oral Cancer Screening!</p>
         </div>
       </div>
 
-      <!-- Left and right controls -->
-      <a class="left carousel-control" href="#activities" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#activities" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <div class="item">
+        <img src="RDH.png" alt="RHD" id="carousel_image">
+        <div class="carousel-caption">
+          <h3>RDH</h3>
+          <p>RDH under one roof</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="Hawaii.png" alt="Fun run" id="carousel_image">
+        <div class="carousel-caption">
+          <h3>Fun run</h3>
+          <p>Hawaii Walk Fun Run</p>
+        </div>
+      </div>
     </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#activities" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#activities" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </body>
 
 </html>

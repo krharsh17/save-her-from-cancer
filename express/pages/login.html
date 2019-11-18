@@ -10,7 +10,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="main_stylesheet.css">
-	<script src="common_script.js"></script>
 	<style>
 		#login_divider {
 			width: 2px;
@@ -129,25 +128,87 @@
 			font-family: 'Ubuntu', sans-serif;
 		}
 
+		#failure_alert,
+		#success_alert {
+			position: fixed;
+			bottom: 50px;
+			opacity: 0.0;
+			z-index: 4;
+			left: 50px;
+			margin: auto;
+		}
+
+		#loading_alert {
+			position: fixed;
+			bottom: 50px;
+			opacity: 0.0;
+			left: 50px;
+			margin: auto;
+		}
+
+		#selected {}
 	</style>
 
 </head>
 
 <body>
+	<script src="common_script.js"></script>
 	<script type="text/javascript">
 		var regx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})(.[a-z]{2,8})?$/;
 
+		window.onload = function () {
+			document.getElementById("home").addEventListener('click', function (ev) {
+				window.open("home", "_self");
+			});
+		}
+
 		function checkForSignup() {
+			setTimeout(function () {
+				$("#loading_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#loading_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 1600);
+			}, 200);
+
+
 			var name = document.getElementById("name").value;
 			var email = document.getElementById("email").value;
 			var firstPassword = document.getElementById("password").value;
 			var secondPassword = document.getElementById("re_password").value;
 			if (name.size == 0 || email.length == 0 || firstPassword.length == 0 || secondPassword.length == 0) {
-				alert("Please enter all details correctly!");
+				document.getElementById("failure_alert").innerHTML = "Please enter all details correctly!";
+				$("#failure_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#failure_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 2000);
 			} else if (!regx.test(email)) {
-				alert("Please enter correct email!");
+				document.getElementById("failure_alert").innerHTML = "Please enter correct email!";
+				$("#failure_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#failure_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 2000);
 			} else if (firstPassword != secondPassword) {
-				alert("The two passwords do not match!");
+				document.getElementById("failure_alert").innerHTML = "The two passwords do not match!";
+				$("#failure_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#failure_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 2000);
 			} else {
 				signup();
 			}
@@ -166,25 +227,80 @@
 				function (result) {
 					console.log(result);
 					if (result == "SUCCESSFUL") {
-						alert("Account created successfully! Now you can contribute articles and stories!");
-						window.location.href = "articles";
+						document.getElementById("success_alert").innerHTML =
+							"Account created successfully! Now you can contribute articles and stories!";
+						$("#success_alert").animate({
+							"opacity": "1.0"
+						}, 400);
+						setTimeout(function () {
+							$("#success_alert").animate({
+								"opacity": "0.0"
+							}, 400);
+							window.location.href = "articles";
+						}, 2000);
 						setCookie("signedIn", "true");
 					} else if (result == "DUPLICATE") {
-						alert("Account already exists! Please log in with these details.");
+						document.getElementById("failure_alert").innerHTML =
+							"Account already exists! Please log in with these details.";
+						$("#failure_alert").animate({
+							"opacity": "1.0"
+						}, 400);
+						setTimeout(function () {
+							$("#failure_alert").animate({
+								"opacity": "0.0"
+							}, 400);
+						}, 2000);
 					} else if (result == "FAILED") {
-						alert("Something went wrong. Please try again.");
+						document.getElementById("failure_alert").innerHTML = "Something went wrong. Please try again.";
+						$("#failure_alert").animate({
+							"opacity": "1.0"
+						}, 400);
+						setTimeout(function () {
+							$("#failure_alert").animate({
+								"opacity": "0.0"
+							}, 400);
+						}, 2000);
 					}
 				}, 'text');
 
 		}
 
 		function checkForSignin() {
+
+			setTimeout(function () {
+				$("#loading_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#loading_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 1600);
+			}, 200);
+
 			var password = document.getElementById("login_password").value;
 			var email = document.getElementById("login_email").value;
 			if (password.size == 0 || email.length == 0) {
-				alert("Please enter all details correctly!");
+				document.getElementById("failure_alert").innerHTML = "Please enter all details correctly!";
+				$("#failure_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#failure_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 2000);
+
 			} else if (!regx.test(email)) {
-				alert("Please enter correct email!");
+				document.getElementById("failure_alert").innerHTML = "Please enter correct email!";
+				$("#failure_alert").animate({
+					"opacity": "1.0"
+				}, 400);
+				setTimeout(function () {
+					$("#failure_alert").animate({
+						"opacity": "0.0"
+					}, 400);
+				}, 2000);
 			} else {
 				signin();
 			}
@@ -197,18 +313,40 @@
 			$.post("http://localhost:8081", "SI " + firstPassword + " " + email + " false",
 				function (result) {
 					if (result == "INVALID CREDENTIALS") {
-						alert("Please enter correct username & password!");
+						document.getElementById("failure_alert").innerHTML = "Please enter correct username & password!";
+						$("#failure_alert").animate({
+							"opacity": "1.0"
+						}, 400);
+						setTimeout(function () {
+							$("#failure_alert").animate({
+								"opacity": "0.0"
+							}, 400);
+						}, 2000);
 					} else if (result == "FAILED") {
-						alert("Something went wrong. Please try again.");
+						document.getElementById("failure_alert").innerHTML = "Something went wrong. Please try again.";
+						$("#failure_alert").animate({
+							"opacity": "1.0"
+						}, 400);
+						setTimeout(function () {
+							$("#failure_alert").animate({
+								"opacity": "0.0"
+							}, 400);
+						}, 2000);
 					} else {
-						alert("Logged in!");
-						window.location.href = "articles";
+						document.getElementById("success_alert").innerHTML = "Logged in! Proceeding...";
+						$("#success_alert").animate({
+							"opacity": "1.0"
+						}, 400);
+						setTimeout(function () {
+							$("#success_alert").animate({
+								"opacity": "0.0"
+							}, 400);
+							window.location.href = "articles";
+						}, 2000);
 						setCookie("signedIn", "true");
 						setCookie("token", result.split("token: ")[1]);
 					}
-				}, 'text').done(() => {
-				alert("request done!")
-			});
+				}, 'text');
 
 			function setCookie(cname, cvalue, exdays) {
 				var d = new Date();
@@ -219,7 +357,7 @@
 
 		}
 	</script>
-	
+
 
 	<div id="topbar">
 		<div class="home" id="home">
@@ -228,7 +366,7 @@
 		</div>
 
 		<div id="topnav">
-			<p id="signin">Sign in</p>
+			<p id="signin" style="color:#1EA99C;font-weight: 600;">Sign in</p>
 			<a href="Nearest Centers">Nearest Centers</a>
 			<a href="self diagnosis">Self-Diagnosis</a>
 			<a href="survivor stories">Survivor Stories</a>
@@ -240,6 +378,15 @@
 		<img src="login_banner.png" class="main_image">
 	</div>
 
+	<div class="alert alert-success" role="alert" id="success_alert">
+
+	</div>
+	<div class="alert alert-danger" role="alert" id="failure_alert">
+
+	</div>
+	<div class="alert alert-warning" role="alert" id="loading_alert">
+		Please wait...
+	</div>
 
 	<div id="login_content">
 		<div id="sign_in">
